@@ -1,6 +1,9 @@
-import { Matches } from '../../models/match';
+import * as MatchScraper from '../../utils/matches_scraper';
 
 export async function findAll() {
-  const result = await Matches.find();
-  return result.toArray();
+  /* await Matches.find();
+  return result.toArray(); */
+  
+  const result = MatchScraper.getLiveScores();
+  return result;
 }

@@ -1,12 +1,243 @@
-# Express API Starter with Typescript
+# AFA Score API
+Publicly available rest API that extracts live data directly from [AFA TV](https://www.afatv.pt/aominuto)'s website.
+Built with Node.JS (TypeScript + Express).
 
-How to use this template:
 
-```sh
-npx create-express-api --typescript --directory my-api-name
-```
+## Endpoints
 
-Includes API Server utilities:
+### GET - [/api/v1/matches](https://afascore.afaneca.com/api/v1/matches)
+Returns live scoreboard data extracted directly from [AFA TV](https://www.afatv.pt/aominuto)'s website
+````json
+[
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AD Ovarense",
+         "shortName":"ADO"
+      },
+      "team2":{
+         "fullName":"Fiães SC",
+         "shortName":"FSC"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"15:00",
+      "competition":"Campeonato SABSEG - 2ª Fase",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Lisboa",
+         "shortName":"AFL"
+      },
+      "team2":{
+         "fullName":"AF Porto",
+         "shortName":"AFP"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"10:00",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Setúbal",
+         "shortName":"AFS"
+      },
+      "team2":{
+         "fullName":"AF Leiria",
+         "shortName":"AFL"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"10:00",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Madeira",
+         "shortName":"AFM"
+      },
+      "team2":{
+         "fullName":"AF Ponta Delgada",
+         "shortName":"AFPD"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"10:00",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Braga",
+         "shortName":"AFB"
+      },
+      "team2":{
+         "fullName":"AF Viseu",
+         "shortName":"AFV"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"12:15",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Santarém",
+         "shortName":"AFS"
+      },
+      "team2":{
+         "fullName":"AF Évora",
+         "shortName":"AFE"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"12:15",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Bragança",
+         "shortName":"AFB"
+      },
+      "team2":{
+         "fullName":"AF Horta",
+         "shortName":"AFH"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"12:15",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Aveiro",
+         "shortName":"AFA"
+      },
+      "team2":{
+         "fullName":"AF Coimbra",
+         "shortName":"AFC"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"EM DIRETO14:30",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Algarve",
+         "shortName":"AFA"
+      },
+      "team2":{
+         "fullName":"AF Castelo Branco",
+         "shortName":"AFCB"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"14:30",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Beja",
+         "shortName":"AFB"
+      },
+      "team2":{
+         "fullName":"AF Vila Real",
+         "shortName":"AFVR"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"14:30",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Angra Heroísmo",
+         "shortName":"AFAH"
+      },
+      "team2":{
+         "fullName":"AF Portalegre",
+         "shortName":"AFP"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"16:45",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AF Guarda",
+         "shortName":"AFG"
+      },
+      "team2":{
+         "fullName":"AF Viana do Castelo",
+         "shortName":"AFVC"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"16:45",
+      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AD Nogueira Regedoura",
+         "shortName":"ADNR"
+      },
+      "team2":{
+         "fullName":"SC Esmoriz",
+         "shortName":"SCE"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"15:00",
+      "competition":"1.ª Divisão Distrital",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"AR Aguinense",
+         "shortName":"ARA"
+      },
+      "team2":{
+         "fullName":"GD Mealhada",
+         "shortName":"GDM"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"15:00",
+      "competition":"1.ª Divisão Distrital",
+      "startDate":"Hoje"
+   },
+   {
+      "id":"1",
+      "team1":{
+         "fullName":"SC Bustelo",
+         "shortName":"SCB"
+      },
+      "team2":{
+         "fullName":"CCR Válega",
+         "shortName":"CCRV"
+      },
+      "status":"NOT_STARTED",
+      "startTime":"15:00",
+      "competition":"1.ª Divisão Distrital",
+      "startDate":"Hoje"
+   }
+]
+````
+
+## Includes API Server utilities:
 
 * [morgan](https://www.npmjs.com/package/morgan)
   * HTTP request logger middleware for node.js
@@ -17,7 +248,7 @@ Includes API Server utilities:
 * [cors](https://www.npmjs.com/package/cors)
   * CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
 
-Development utilities:
+## Development utilities:
 
 * [typescript](https://www.npmjs.com/package/typescript)
   * TypeScript is a language for application-scale JavaScript.
@@ -40,19 +271,19 @@ Development utilities:
 npm install
 ```
 
-## Lint
+### Lint
 
 ```
 npm run lint
 ```
 
-## Test
+### Test
 
 ```
 npm run test
 ```
 
-## Development
+### Development
 
 ```
 npm run dev
