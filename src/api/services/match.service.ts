@@ -5,5 +5,6 @@ export async function findAll() {
   return result.toArray(); */
   
   const result = MatchScraper.getLiveScores();
+
   return result;
 }

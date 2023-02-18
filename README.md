@@ -13,226 +13,301 @@ Returns live scoreboard data extracted directly from [AFA TV](https://www.afatv.
       "id":"1",
       "team1":{
          "fullName":"AD Ovarense",
-         "shortName":"ADO"
+         "shortName":"ADO",
+         "logoUrl":"https://www.afatv.pt/img/equipas/ovarense_futebol.png"
       },
       "team2":{
          "fullName":"Fiães SC",
-         "shortName":"FSC"
+         "shortName":"FSC",
+         "logoUrl":"https://www.afatv.pt/img/equipas/fiaes.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"15:00",
-      "competition":"Campeonato SABSEG - 2ª Fase",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Lisboa",
-         "shortName":"AFL"
+         "shortName":"AFL",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_lisboa.png"
       },
       "team2":{
          "fullName":"AF Porto",
-         "shortName":"AFP"
+         "shortName":"AFP",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_porto.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"10:00",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Setúbal",
-         "shortName":"AFS"
+         "shortName":"AFS",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_setubal.png"
       },
       "team2":{
          "fullName":"AF Leiria",
-         "shortName":"AFL"
+         "shortName":"AFL",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_leiria.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"10:00",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Madeira",
-         "shortName":"AFM"
+         "shortName":"AFM",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_madeira.png"
       },
       "team2":{
          "fullName":"AF Ponta Delgada",
-         "shortName":"AFPD"
+         "shortName":"AFPD",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_ponta_delgada.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"10:00",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Braga",
-         "shortName":"AFB"
+         "shortName":"AFB",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_braga.png"
       },
       "team2":{
          "fullName":"AF Viseu",
-         "shortName":"AFV"
+         "shortName":"AFV",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_viseu.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"12:15",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Santarém",
-         "shortName":"AFS"
+         "shortName":"AFS",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_santarem.png"
       },
       "team2":{
          "fullName":"AF Évora",
-         "shortName":"AFE"
+         "shortName":"AFE",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_evora.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"12:15",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Bragança",
-         "shortName":"AFB"
+         "shortName":"AFB",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_braganca.png"
       },
       "team2":{
          "fullName":"AF Horta",
-         "shortName":"AFH"
+         "shortName":"AFH",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_horta.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"12:15",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Aveiro",
-         "shortName":"AFA"
+         "shortName":"AFA",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_aveiro_vector.png"
       },
       "team2":{
          "fullName":"AF Coimbra",
-         "shortName":"AFC"
+         "shortName":"AFC",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_coimbra.png"
       },
-      "status":"NOT_STARTED",
-      "startTime":"EM DIRETO14:30",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
+      },
+      "status":"ONGOING",
+      "startTime":"14:30",
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Algarve",
-         "shortName":"AFA"
+         "shortName":"AFA",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_algarve_v2.png"
       },
       "team2":{
          "fullName":"AF Castelo Branco",
-         "shortName":"AFCB"
+         "shortName":"AFCB",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_castelo_branco.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"14:30",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Beja",
-         "shortName":"AFB"
+         "shortName":"AFB",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_beja.png"
       },
       "team2":{
          "fullName":"AF Vila Real",
-         "shortName":"AFVR"
+         "shortName":"AFVR",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_vila_real.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"14:30",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Angra Heroísmo",
-         "shortName":"AFAH"
+         "shortName":"AFAH",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_angra_heroismo.png"
       },
       "team2":{
          "fullName":"AF Portalegre",
-         "shortName":"AFP"
+         "shortName":"AFP",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_portalegre.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"16:45",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AF Guarda",
-         "shortName":"AFG"
+         "shortName":"AFG",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_guarda.png"
       },
       "team2":{
          "fullName":"AF Viana do Castelo",
-         "shortName":"AFVC"
+         "shortName":"AFVC",
+         "logoUrl":"https://www.afatv.pt/img/equipas/af_v_castelo.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"16:45",
-      "competition":"Torneio Interassociações de Futsal Sub-15 2023",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AD Nogueira Regedoura",
-         "shortName":"ADNR"
+         "shortName":"ADNR",
+         "logoUrl":"https://www.afatv.pt/img/equipas/nogueira_da_regedoura.png"
       },
       "team2":{
          "fullName":"SC Esmoriz",
-         "shortName":"SCE"
+         "shortName":"SCE",
+         "logoUrl":"https://www.afatv.pt/img/equipas/esmoriz.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"15:00",
-      "competition":"1.ª Divisão Distrital",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"AR Aguinense",
-         "shortName":"ARA"
+         "shortName":"ARA",
+         "logoUrl":"https://www.afatv.pt/img/equipas/aguinense.png"
       },
       "team2":{
          "fullName":"GD Mealhada",
-         "shortName":"GDM"
+         "shortName":"GDM",
+         "logoUrl":"https://www.afatv.pt/img/equipas/gdmealhada.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"15:00",
-      "competition":"1.ª Divisão Distrital",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    },
    {
       "id":"1",
       "team1":{
          "fullName":"SC Bustelo",
-         "shortName":"SCB"
+         "shortName":"SCB",
+         "logoUrl":"https://www.afatv.pt/img/equipas/bustelo.png"
       },
       "team2":{
          "fullName":"CCR Válega",
-         "shortName":"CCRV"
+         "shortName":"CCRV",
+         "logoUrl":"https://www.afatv.pt/img/equipas/valega.png"
+      },
+      "scoreboard":{
+         "team1Score":"0",
+         "team2Score":"0"
       },
       "status":"NOT_STARTED",
       "startTime":"15:00",
-      "competition":"1.ª Divisão Distrital",
-      "startDate":"Hoje"
+      "startDate":"2023-02-18"
    }
 ]
 ````
