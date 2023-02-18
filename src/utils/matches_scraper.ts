@@ -6,7 +6,6 @@ import puppeteer from 'puppeteer';
 
 const URL = 'https://www.afatv.pt/aominuto';
 
-
 const GameStatus = {
   NotStarted: 'NOT_STARTED',
   Ongoing: 'ONGOING',
@@ -15,7 +14,6 @@ const GameStatus = {
 };
 
 type GameStatus = typeof GameStatus[keyof typeof GameStatus];
-
 
 /* NEW METHOD - FETCH DATA DIRECTLY FROM PHP POST REQUEST */
 const LOGO_BASE_URL = 'https://www.afatv.pt/img/equipas/';
@@ -50,11 +48,11 @@ function parseMatchData(js: any): Match[] {
           status = GameStatus.NotStarted;
           break;
         }
-        case '1': {
+        case '2': {
           status = GameStatus.Ongoing;
           break;
         }
-        case '2': {
+        case '3': {
           status = GameStatus.Finished;
           break;
         }
