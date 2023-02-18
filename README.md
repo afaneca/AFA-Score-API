@@ -322,6 +322,8 @@ Returns live scoreboard data extracted directly from [AFA TV](https://www.afatv.
   * Dotenv is a zero-dependency module that loads environment variables from a `.env` file into `process.env`
 * [cors](https://www.npmjs.com/package/cors)
   * CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+* [puppeteer](https://www.npmjs.com/package/puppeteer)
+  * Puppeteer is a Node.js library which provides a high-level API to control Chrome/Chromium over the DevTools Protocol. 
 
 ## Development utilities:
 
