@@ -44,15 +44,16 @@ function parseMatchData(js: any): Match[] {
 
       let status: GameStatus;
       switch (matchData.Estado) {
-        case '0': {
+        case '0': // NOT STARTED 
+        case '1': { // NOT STARTED - LIVE STREAM
           status = GameStatus.NotStarted;
           break;
         }
-        case '2': {
+        case '2': { // ONGOING
           status = GameStatus.Ongoing;
           break;
         }
-        case '3': {
+        case '3': { // FINISHED
           status = GameStatus.Finished;
           break;
         }
