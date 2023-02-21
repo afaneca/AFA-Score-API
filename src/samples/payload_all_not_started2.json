@@ -30,7 +30,7 @@
           "GolosEquipaForaDetalhe": []
         },
         {
-          "Estado": "0",
+          "Estado": "2",
           "Nome": "Torneio Interassocia\u00e7\u00f5es de Futsal Sub-15 2023",
           "JogoID": "11289",
           "CampeonatoEpoca": "113",
@@ -39,12 +39,12 @@
           "NomeEquipaCasa": "AF Madeira",
           "SiglaCasa": "AFM",
           "LogoCasa": "af_madeira.png",
-          "GolosEquipaCasa": "0",
+          "GolosEquipaCasa": "1",
           "EquipaForaID": "46",
           "NomeEquipaFora": "AF Bragan\u00e7a",
           "SiglaFora": "AFB",
           "LogoFora": "af_braganca.png",
-          "GolosEquipaFora": "0",
+          "GolosEquipaFora": "1",
           "Data": "2023-02-21",
           "Hora": "09:30",
           "Postname": "torneio-interassociaes-de-futsal-sub-15-2023-2022-2023-af-madeira-af-bragana",

@@ -2,6 +2,15 @@ import { NextFunction, Request, Response } from 'express';
 import { Match } from '../../models/match';
 import * as MatchService from '../services/match.service';
 
+const MATCH_LAST_UPDATE_EXPIRATION_TIME_MS = 60 * 1000; //7 * 24 * 60 * 60 * 1000; // 7 days
+/**
+ * Every <X time>, delete old match records
+ */
+export function removeOldMatchRecords() {
+  console.debug('removing old data...');
+  MatchService.removeOldMatchRecords(MATCH_LAST_UPDATE_EXPIRATION_TIME_MS);
+}
+
 /**
  * Fetch data from remote source and syncs it with local storage
  */

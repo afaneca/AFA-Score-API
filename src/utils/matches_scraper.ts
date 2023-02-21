@@ -15,6 +15,15 @@ const GameStatus = {
   Unknown: 'UNKNOWN',
 };
 
+export const LastGameActivity = {
+  None: 'NONE',
+  StatusChange: 'STATUS_CHANGED',
+  GoalTeam1: 'GOAL_TEAM_1',
+  GoalTeam2: 'GOAL_TEAM_2',
+};
+
+type LastGameActivity = typeof LastGameActivity[keyof typeof LastGameActivity];
+
 type GameStatus = typeof GameStatus[keyof typeof GameStatus];
 
 /* NEW METHOD - FETCH DATA DIRECTLY FROM PHP POST REQUEST */
@@ -67,7 +76,7 @@ function parseMatchData(js: any): Match[] {
           break;
         }
       }
-
+      const currentDate = new Date();
       const match: Match = {
         id: matchData.JogoID,
         team1: team1,
@@ -77,6 +86,10 @@ function parseMatchData(js: any): Match[] {
         startTime: startTime,
         competition: competitionName,
         startDate: startDate,
+        createdAt: currentDate,
+        updatedAt: currentDate,
+        hasRecentActivity: false,
+        lastGameActivity: LastGameActivity.None,
       };
       matches.push(match);
     });
@@ -105,10 +118,9 @@ export async function getLiveScores() {
   })
     .then(function (response: any) {
       //handle success
-      /* console.log(response.data); */
       // INJECTING MOCK DATA - FOR DEBUG ONLY
       var jsonData = response.data;
-      /* jsonData = injectMockJsonData('payload_all_not_started2.json'); */
+      jsonData = injectMockJsonData('payload_all_not_started2.json');
 
       matches = parseMatchData(jsonData);
     })
