@@ -2,9 +2,11 @@ import Scoreboard from '../models/scoreboard';
 import Team from '../models/team';
 import { Match } from './../models/match';
 
-import puppeteer from 'puppeteer';
+import { readFileSync } from 'fs';
+import path from 'path';
+import axios from 'axios';
 
-const URL = 'https://www.afatv.pt/aominuto';
+const URL = 'https://www.afatv.pt/services/goloaominuto/goloaominuto.php';
 
 const GameStatus = {
   NotStarted: 'NOT_STARTED',
@@ -44,16 +46,19 @@ function parseMatchData(js: any): Match[] {
 
       let status: GameStatus;
       switch (matchData.Estado) {
-        case '0': // NOT STARTED 
-        case '1': { // NOT STARTED - LIVE STREAM
+        case '0': // NOT STARTED
+        case '1': {
+          // NOT STARTED - LIVE STREAM
           status = GameStatus.NotStarted;
           break;
         }
-        case '2': { // ONGOING
+        case '2': {
+          // ONGOING
           status = GameStatus.Ongoing;
           break;
         }
-        case '3': { // FINISHED
+        case '3': {
+          // FINISHED
           status = GameStatus.Finished;
           break;
         }
@@ -64,7 +69,7 @@ function parseMatchData(js: any): Match[] {
       }
 
       const match: Match = {
-        id: '1',
+        id: matchData.JogoID,
         team1: team1,
         team2: team2,
         scoreboard: scoreboard,
@@ -79,22 +84,39 @@ function parseMatchData(js: any): Match[] {
   return matches;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function injectMockJsonData(jsonFileName: string) {
+  return JSON.parse(
+    readFileSync(path.resolve(__dirname, `../samples/${jsonFileName}`), 'utf8')
+  );
+}
+
 export async function getLiveScores() {
   let matches = new Array<Match>();
-  const browser = await puppeteer.launch();
 
-  const page = await browser.newPage();
-  //await page.setRequestInterception(true);
+  var bodyFormData = new FormData();
+  bodyFormData.append('call', 'readResultadosAoMinuto');
 
-  page.on('response', async (response) => {
-    if (response.url().endsWith('goloaominuto.php')) {
-      var js = await response.json();
+  await axios({
+    method: 'post',
+    url: URL,
+    data: bodyFormData,
+    headers: { 'Content-Type': 'multipart/form-data' },
+  })
+    .then(function (response: any) {
+      //handle success
+      /* console.log(response.data); */
+      // INJECTING MOCK DATA - FOR DEBUG ONLY
+      var jsonData = response.data;
+      /* jsonData = injectMockJsonData('payload_all_not_started2.json'); */
 
-      matches = parseMatchData(js);
-      return matches;
-    }
-  });
-  await page.goto(URL);
-  await browser.close();
+      matches = parseMatchData(jsonData);
+    })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .catch(function (_err) {
+      //handle error
+      /*console.log(_err); */
+    });
+
   return matches;
 }

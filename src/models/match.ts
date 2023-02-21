@@ -1,4 +1,5 @@
 import * as z from 'zod';
+import { db } from '../db/db';
 import Scoreboard from './scoreboard';
 import Team from './team';
 /* import { WithId } from 'mongodb';
@@ -17,4 +18,4 @@ const Match = z.object({
 
 export type Match = z.infer<typeof Match>;
 /* export type MatchWithId = WithId<Match>; */
-/* export const Matches = db.collection<Match>('matches'); */
+export const Matches = db.collection<Match>('matches');
