@@ -29,9 +29,12 @@ type GameStatus = typeof GameStatus[keyof typeof GameStatus];
 /* NEW METHOD - FETCH DATA DIRECTLY FROM PHP POST REQUEST */
 const LOGO_BASE_URL = 'https://www.afatv.pt/img/equipas/';
 
-function parseMatchData(js: any): Match[] {
+function extractMatchFromCompetitionData(
+  matchesWrapper: any,
+  definedStatus: GameStatus | null = null
+): Match[] {
   const matches = new Array<Match>();
-  Object.values(js.data.Jogos).forEach((competitionData: any) => {
+  Object.values(matchesWrapper).forEach((competitionData: any) => {
     competitionData.forEach((matchData: any) => {
       const competitionName = matchData.Nome;
       const startTime = matchData.Hora;
@@ -41,41 +44,45 @@ function parseMatchData(js: any): Match[] {
         shortName: matchData.SiglaCasa,
         logoUrl: `${LOGO_BASE_URL}${matchData.LogoCasa}`,
       };
-
+  
       const team2: Team = {
         fullName: matchData.NomeEquipaFora,
         shortName: matchData.SiglaFora,
         logoUrl: `${LOGO_BASE_URL}${matchData.LogoFora}`,
       };
-
+  
       const scoreboard: Scoreboard = {
         team1Score: matchData.GolosEquipaCasa,
         team2Score: matchData.GolosEquipaFora,
       };
-
+  
       let status: GameStatus;
-      switch (matchData.Estado) {
-        case '0': // NOT STARTED
-        case '1': {
-          // NOT STARTED - LIVE STREAM
-          status = GameStatus.NotStarted;
-          break;
-        }
-        case '2': {
-          // ONGOING
-          status = GameStatus.Ongoing;
-          break;
-        }
-        case '3': {
-          // FINISHED
-          status = GameStatus.Finished;
-          break;
-        }
-        default: {
-          status = GameStatus.Unknown;
-          break;
+      if (definedStatus) status = definedStatus;
+      else {
+        switch (matchData.Estado) {
+          case '0': // NOT STARTED
+          case '1': {
+            // NOT STARTED - LIVE STREAM
+            status = GameStatus.NotStarted;
+            break;
+          }
+          case '2': {
+            // ONGOING
+            status = GameStatus.Ongoing;
+            break;
+          }
+          case '3': {
+            // FINISHED
+            status = GameStatus.Finished;
+            break;
+          }
+          default: {
+            status = GameStatus.Unknown;
+            break;
+          }
         }
       }
+  
       const currentDate = new Date();
       const match: Match = {
         id: matchData.JogoID,
@@ -94,6 +101,22 @@ function parseMatchData(js: any): Match[] {
       matches.push(match);
     });
   });
+
+  return matches;
+}
+
+function parseMatchData(js: any): Match[] {
+  /* console.debug('js data: ' + JSON.stringify(js)); */
+  const matches = new Array<Match>();
+  if (js.data.Jogos)
+    matches.push(...extractMatchFromCompetitionData(js.data.Jogos));
+  if (js.data.ProximosJogos)
+    matches.push(
+      ...extractMatchFromCompetitionData(
+        js.data.ProximosJogos,
+        GameStatus.NotStarted
+      )
+    );
   return matches;
 }
 
@@ -118,16 +141,16 @@ export async function getLiveScores() {
   })
     .then(function (response: any) {
       //handle success
-      // INJECTING MOCK DATA - FOR DEBUG ONLY
       var jsonData = response.data;
-      jsonData = injectMockJsonData('payload_all_not_started2.json');
+      // INJECTING MOCK DATA - FOR DEBUG ONLY
+      //jsonData = injectMockJsonData('payload_all_not_started2.json');
 
       matches = parseMatchData(jsonData);
     })
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .catch(function (_err) {
       //handle error
-      /*console.log(_err); */
+      console.log(_err);
     });
 
   return matches;
