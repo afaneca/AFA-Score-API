@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { Match } from '../../models/match';
 import * as MatchService from '../services/match.service';
 
-const MATCH_LAST_UPDATE_EXPIRATION_TIME_MS = 60 * 1000; //7 * 24 * 60 * 60 * 1000; // 7 days
+const MATCH_LAST_UPDATE_EXPIRATION_TIME_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
 /**
  * Every <X time>, delete old match records
  */
