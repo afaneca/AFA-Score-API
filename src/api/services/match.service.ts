@@ -1,5 +1,6 @@
 import { Match, Matches } from './../../models/match';
 import * as MatchScraper from '../../utils/matches_scraper';
+import * as NotificationCenter from '../../utils/notification_center';
 
 /* LOCAL SOURCE */
 export async function findAllFromLocalSource() {
@@ -74,6 +75,10 @@ export async function syncMatchData() {
             },
           }
         );
+
+        // notify subscribers of match update
+        console.debug('notifying subscribers of match updated');
+        NotificationCenter.postMatchNotification(match, lastGameActivity);
       } else if (
         localMatch.hasRecentActivity == true &&
         currentDate.getTime() - localMatch.updatedAt.getTime() > 5 * 60 * 1_000

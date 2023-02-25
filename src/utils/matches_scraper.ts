@@ -6,9 +6,11 @@ import { readFileSync } from 'fs';
 import path from 'path';
 import axios from 'axios';
 
+import mockData from '../samples/payload_misc.json';
+
 const URL = 'https://www.afatv.pt/services/goloaominuto/goloaominuto.php';
 
-const GameStatus = {
+export const GameStatus = {
   NotStarted: 'NOT_STARTED',
   Ongoing: 'ONGOING',
   Finished: 'FINISHED',
@@ -22,9 +24,10 @@ export const LastGameActivity = {
   GoalTeam2: 'GOAL_TEAM_2',
 };
 
-type LastGameActivity = typeof LastGameActivity[keyof typeof LastGameActivity];
+export type LastGameActivity =
+  typeof LastGameActivity[keyof typeof LastGameActivity];
 
-type GameStatus = typeof GameStatus[keyof typeof GameStatus];
+export type GameStatus = typeof GameStatus[keyof typeof GameStatus];
 
 /* NEW METHOD - FETCH DATA DIRECTLY FROM PHP POST REQUEST */
 const LOGO_BASE_URL = 'https://www.afatv.pt/img/equipas/';
@@ -44,18 +47,18 @@ function extractMatchFromCompetitionData(
         shortName: matchData.SiglaCasa,
         logoUrl: `${LOGO_BASE_URL}${matchData.LogoCasa}`,
       };
-  
+
       const team2: Team = {
         fullName: matchData.NomeEquipaFora,
         shortName: matchData.SiglaFora,
         logoUrl: `${LOGO_BASE_URL}${matchData.LogoFora}`,
       };
-  
+
       const scoreboard: Scoreboard = {
         team1Score: matchData.GolosEquipaCasa,
         team2Score: matchData.GolosEquipaFora,
       };
-  
+
       let status: GameStatus;
       if (definedStatus) status = definedStatus;
       else {
@@ -82,7 +85,7 @@ function extractMatchFromCompetitionData(
           }
         }
       }
-  
+
       const currentDate = new Date();
       const match: Match = {
         id: matchData.JogoID,
@@ -120,13 +123,6 @@ function parseMatchData(js: any): Match[] {
   return matches;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function injectMockJsonData(jsonFileName: string) {
-  return JSON.parse(
-    readFileSync(path.resolve(__dirname, `../samples/${jsonFileName}`), 'utf8')
-  );
-}
-
 export async function getLiveScores() {
   let matches = new Array<Match>();
 
@@ -143,8 +139,7 @@ export async function getLiveScores() {
       //handle success
       var jsonData = response.data;
       // INJECTING MOCK DATA - FOR DEBUG ONLY
-      //jsonData = injectMockJsonData('payload_all_not_started2.json');
-
+      //jsonData = mockData;
       matches = parseMatchData(jsonData);
     })
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
