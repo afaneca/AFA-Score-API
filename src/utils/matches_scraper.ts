@@ -6,9 +6,11 @@ import { readFileSync } from 'fs';
 import path from 'path';
 import axios from 'axios';
 
+import mockData from '../samples/payload_misc.json';
+
 const URL = 'https://www.afatv.pt/services/goloaominuto/goloaominuto.php';
 
-const GameStatus = {
+export const GameStatus = {
   NotStarted: 'NOT_STARTED',
   Ongoing: 'ONGOING',
   Finished: 'FINISHED',
@@ -22,16 +24,20 @@ export const LastGameActivity = {
   GoalTeam2: 'GOAL_TEAM_2',
 };
 
-type LastGameActivity = typeof LastGameActivity[keyof typeof LastGameActivity];
+export type LastGameActivity =
+  typeof LastGameActivity[keyof typeof LastGameActivity];
 
-type GameStatus = typeof GameStatus[keyof typeof GameStatus];
+export type GameStatus = typeof GameStatus[keyof typeof GameStatus];
 
 /* NEW METHOD - FETCH DATA DIRECTLY FROM PHP POST REQUEST */
 const LOGO_BASE_URL = 'https://www.afatv.pt/img/equipas/';
 
-function parseMatchData(js: any): Match[] {
+function extractMatchFromCompetitionData(
+  matchesWrapper: any,
+  definedStatus: GameStatus | null = null
+): Match[] {
   const matches = new Array<Match>();
-  Object.values(js.data.Jogos).forEach((competitionData: any) => {
+  Object.values(matchesWrapper).forEach((competitionData: any) => {
     competitionData.forEach((matchData: any) => {
       const competitionName = matchData.Nome;
       const startTime = matchData.Hora;
@@ -54,28 +60,32 @@ function parseMatchData(js: any): Match[] {
       };
 
       let status: GameStatus;
-      switch (matchData.Estado) {
-        case '0': // NOT STARTED
-        case '1': {
-          // NOT STARTED - LIVE STREAM
-          status = GameStatus.NotStarted;
-          break;
-        }
-        case '2': {
-          // ONGOING
-          status = GameStatus.Ongoing;
-          break;
-        }
-        case '3': {
-          // FINISHED
-          status = GameStatus.Finished;
-          break;
-        }
-        default: {
-          status = GameStatus.Unknown;
-          break;
+      if (definedStatus) status = definedStatus;
+      else {
+        switch (matchData.Estado) {
+          case '0': // NOT STARTED
+          case '1': {
+            // NOT STARTED - LIVE STREAM
+            status = GameStatus.NotStarted;
+            break;
+          }
+          case '2': {
+            // ONGOING
+            status = GameStatus.Ongoing;
+            break;
+          }
+          case '3': {
+            // FINISHED
+            status = GameStatus.Finished;
+            break;
+          }
+          default: {
+            status = GameStatus.Unknown;
+            break;
+          }
         }
       }
+
       const currentDate = new Date();
       const match: Match = {
         id: matchData.JogoID,
@@ -94,14 +104,23 @@ function parseMatchData(js: any): Match[] {
       matches.push(match);
     });
   });
+
   return matches;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function injectMockJsonData(jsonFileName: string) {
-  return JSON.parse(
-    readFileSync(path.resolve(__dirname, `../samples/${jsonFileName}`), 'utf8')
-  );
+function parseMatchData(js: any): Match[] {
+  /* console.debug('js data: ' + JSON.stringify(js)); */
+  const matches = new Array<Match>();
+  if (js.data.Jogos)
+    matches.push(...extractMatchFromCompetitionData(js.data.Jogos));
+  if (js.data.ProximosJogos)
+    matches.push(
+      ...extractMatchFromCompetitionData(
+        js.data.ProximosJogos,
+        GameStatus.NotStarted
+      )
+    );
+  return matches;
 }
 
 export async function getLiveScores() {
@@ -118,16 +137,15 @@ export async function getLiveScores() {
   })
     .then(function (response: any) {
       //handle success
-      // INJECTING MOCK DATA - FOR DEBUG ONLY
       var jsonData = response.data;
-      jsonData = injectMockJsonData('payload_all_not_started2.json');
-
+      // INJECTING MOCK DATA - FOR DEBUG ONLY
+      //jsonData = mockData;
       matches = parseMatchData(jsonData);
     })
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .catch(function (_err) {
       //handle error
-      /*console.log(_err); */
+      console.log(_err);
     });
 
   return matches;

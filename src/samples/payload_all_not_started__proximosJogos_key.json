@@ -1,0 +1,91 @@
+{
+  "status": "success",
+  "data": {
+    "ProximosJogos": {
+      "1DivisaoDistrital": [
+        {
+          "Nome": "1.\u00aa Divis\u00e3o Distrital",
+          "JogoID": "10399",
+          "CampeonatoEpoca": "101",
+          "Jornada": "18",
+          "EquipaCasaID": "160",
+          "NomeEquipaCasa": "Rel\u00e2mpago Nogueirense",
+          "SiglaCasa": "RUFCN",
+          "LogoCasa": "relampagonogueirense.png",
+          "EquipaForaID": "113",
+          "NomeEquipaFora": "AD Nogueira Regedoura",
+          "SiglaFora": "ADNR",
+          "LogoFora": "nogueira_da_regedoura.png",
+          "Data": "2023-02-25",
+          "Hora": "15:00",
+          "Postname": "1-diviso-distrital-2022-2023-relmpago-nogueirense-ad-nogueira-regedoura",
+          "PaidVideoHTML": null,
+          "DataFormatada": "25 de Fevereiro de 2023",
+          "DataCompleta": "2023-02-25T15:00"
+        }
+      ],
+      "2DivisaoDistrital": [
+        {
+          "Nome": "2.\u00aa Divis\u00e3o Distrital",
+          "JogoID": "10728",
+          "CampeonatoEpoca": "105",
+          "Jornada": "16",
+          "EquipaCasaID": "118",
+          "NomeEquipaCasa": "RC Nogueirense",
+          "SiglaCasa": "RCN",
+          "LogoCasa": "real_nogueirense.png",
+          "EquipaForaID": "96",
+          "NomeEquipaFora": "Gera\u00e7\u00e3o RD",
+          "SiglaFora": "GRD",
+          "LogoFora": "rui-dolores.png",
+          "Data": "2023-02-25",
+          "Hora": "15:00",
+          "Postname": "2-diviso-distrital-2022-2023-rc-nogueirense-gerao-rd",
+          "PaidVideoHTML": null,
+          "DataFormatada": "25 de Fevereiro de 2023",
+          "DataCompleta": "2023-02-25T15:00"
+        },
+        {
+          "Nome": "2.\u00aa Divis\u00e3o Distrital",
+          "JogoID": "10729",
+          "CampeonatoEpoca": "105",
+          "Jornada": "16",
+          "EquipaCasaID": "275",
+          "NomeEquipaCasa": "Florgrade FC B",
+          "SiglaCasa": "FFC B",
+          "LogoCasa": "d-florgrade.png",
+          "EquipaForaID": "103",
+          "NomeEquipaFora": "GD Beira-Vouga",
+          "SiglaFora": "GDBV",
+          "LogoFora": "beiravouga.png",
+          "Data": "2023-02-25",
+          "Hora": "15:00",
+          "Postname": "2-diviso-distrital-2022-2023-florgrade-fc-b-gd-beira-vouga",
+          "PaidVideoHTML": null,
+          "DataFormatada": "25 de Fevereiro de 2023",
+          "DataCompleta": "2023-02-25T15:00"
+        },
+        {
+          "Nome": "2.\u00aa Divis\u00e3o Distrital",
+          "JogoID": "10734",
+          "CampeonatoEpoca": "105",
+          "Jornada": "16",
+          "EquipaCasaID": "262",
+          "NomeEquipaCasa": "UD Mourisquense B",
+          "SiglaCasa": "UDMB",
+          "LogoCasa": "mourisquense.png",
+          "EquipaForaID": "274",
+          "NomeEquipaFora": "AA Macinhatense",
+          "SiglaFora": "AAM",
+          "LogoFora": "aamacinhatense.png",
+          "Data": "2023-02-25",
+          "Hora": "15:00",
+          "Postname": "2-diviso-distrital-2022-2023-ud-mourisquense-b-aa-macinhatense",
+          "PaidVideoHTML": null,
+          "DataFormatada": "25 de Fevereiro de 2023",
+          "DataCompleta": "2023-02-25T15:00"
+        }
+      ]
+    }
+  }
+}
