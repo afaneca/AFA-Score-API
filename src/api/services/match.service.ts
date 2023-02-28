@@ -4,7 +4,7 @@ import * as NotificationCenter from '../../utils/notification_center';
 
 /* LOCAL SOURCE */
 export async function findAllFromLocalSource() {
-  return Matches.find().toArray();
+  return Matches.find().sort({updatedAt: -1}).toArray();
 }
 
 /* REMOTE SOURCE */
