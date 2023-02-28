@@ -17,4 +17,4 @@ jobs:
         key: ${{ secrets.SERVER_SECRET }}
         port: ${{ secrets.SERVER_SSH_PORT }}
         script: |
-          ./update_afascore_api.sh
+          sh ./update_afascore_api.sh
