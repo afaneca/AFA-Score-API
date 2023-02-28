@@ -23,7 +23,7 @@ export function removeOldMatchRecords(expirationTimeInMs: number) {
 export async function syncMatchData() {
   const remoteMatches = await findAllFromRemoteSource();
   /* console.debug('remote matches: ' + remoteMatches); */
-  if (!remoteMatches || remoteMatches.length == 1) return;
+  if (!remoteMatches || remoteMatches.length < 1) return;
   remoteMatches.forEach(async (match) => {
     // updates local match if it exists or creates a new one if it doesn't
     console.debug('-- remote match');
