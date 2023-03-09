@@ -42,6 +42,7 @@ export async function postMatchNotification(
   match: Match,
   lastGameActivity: LastGameActivity
 ) {
+  if(lastGameActivity == LastGameActivity.None) return;
   let title, message;
   switch (lastGameActivity) {
     case LastGameActivity.GoalTeam1: {
