@@ -17,5 +17,5 @@ app.listen(port, () => {
   setInterval(syncMatchData, 30_000);
 
   // Every 24h, delete old match records
-  setInterval(removeOldMatchRecords, 24 * 60_000_000);
+  setInterval(removeOldMatchRecords, 24 * 60 * 60 * 1000);
 });
