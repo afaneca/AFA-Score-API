@@ -55,8 +55,8 @@ function extractMatchFromCompetitionData(
       };
 
       const scoreboard: Scoreboard = {
-        team1Score: matchData.GolosEquipaCasa,
-        team2Score: matchData.GolosEquipaFora,
+        team1Score: matchData.GolosEquipaCasa ?? 0,
+        team2Score: matchData.GolosEquipaFora ?? 0,
       };
 
       let status: GameStatus;
